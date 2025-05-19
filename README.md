@@ -1,6 +1,6 @@
 # Job Finder Front- Клиентская часть сервиса по поиску работы
 ## Автор: Александриди-Шандаевский Е. Д. ИКБО-20-22
-
+## Бекенд часть - https://github.com/grannnsacker/naympro_backend
 ## Технологии
 - React 18
 - TypeScript
