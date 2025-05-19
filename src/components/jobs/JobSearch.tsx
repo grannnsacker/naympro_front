@@ -52,19 +52,23 @@ const JobSearch: React.FC = () => {
       };
 
       const response = await searchJobs(query, currentPage, pageSize, filterParams);
-      const jobsArray = response || [];
-      const uniqueJobs = Array.from(
-        new Map(jobsArray.map((job: Job) => [job.id, job])).values()
-      );
-      setJobs(uniqueJobs);
-      
-      const isLastPageFull = uniqueJobs.length === pageSize;
-      if (currentPage === 1 && !isLastPageFull) {
-        setTotalPages(1);
-      } else if (isLastPageFull) {
-        setTotalPages(currentPage + 1);
+      if (Array.isArray(response)) {
+        const uniqueJobs = Array.from(
+          new Map(response.map((job: Job) => [job.id, job])).values()
+        );
+        setJobs(uniqueJobs);
+        
+        const isLastPageFull = uniqueJobs.length === pageSize;
+        if (currentPage === 1 && !isLastPageFull) {
+          setTotalPages(1);
+        } else if (isLastPageFull) {
+          setTotalPages(currentPage + 1);
+        } else {
+          setTotalPages(currentPage);
+        }
       } else {
-        setTotalPages(currentPage);
+        setJobs([]);
+        setTotalPages(1);
       }
     } catch (error) {
       console.error('Error fetching jobs:', error);

@@ -1,75 +1,64 @@
-# Job Finder Frontend
+# Job Finder Front- Клиентская часть сервиса по поиску работы
+## Автор: Александриди-Шандаевский Е. Д. ИКБО-20-22
 
-A React-based frontend application for the Job Finder platform. This application allows users to search for jobs, view job details, and apply for positions. It also provides functionality for employers to post jobs and manage applications.
+## Технологии
+- React 18
+- TypeScript
+- Material-UI
+- React Router
+- Axios
+- Vite
 
-## Features
+## Требования
+- Node.js 18 или выше
 
-- User and Employer Authentication
-- Job Search with Filters
-- Job Details View
-- Job Application System
-- Responsive Material-UI Design
+## Установка и запуск
 
-## Prerequisites
-
-- Node.js (v14 or higher)
-- npm or yarn package manager
-
-## Setup
-
-1. Clone the repository:
+1. Клонируйте репозиторий:
 ```bash
-git clone <repository-url>
+git clone [url-репозитория]
 cd job-finder-front
 ```
 
-2. Install dependencies:
+2. Установите зависимости:
 ```bash
 npm install
-# or
-yarn install
 ```
 
-3. Create a `.env` file in the root directory and add the following:
+3. Создайте файл .env в корневой директории и добавьте необходимые переменные окружения:
 ```env
-VITE_API_URL=http://localhost:8080/api/v1
+VITE_API_URL=http://localhost:8080
 ```
 
-4. Start the development server:
+4. Запустите приложение в режиме разработки:
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-The application will be available at `http://localhost:3000`.
+5. Для сборки проекта:
+```bash
+npm run build
+```
 
-## Project Structure
-
+## Структура проекта
 ```
 src/
-  ├── components/     # React components
-  │   ├── auth/      # Authentication components
-  │   └── jobs/      # Job-related components
-  ├── services/      # API services
-  ├── store/         # Redux store configuration
-  ├── types/         # TypeScript type definitions
-  ├── App.tsx        # Main application component
-  └── main.tsx       # Application entry point
+  ├── components/     # React компоненты
+    ├── auth/     # Компоненты авторизации
+    ├── jobs/     # Компоненты вакансий и откликов
+    ├── profile/     # Компоненты профиля
+  ├── services/       # API сервисы
+  ├── types/         # TypeScript типы
+  ├── utils/         # Вспомогательные функции
+  ├── App.tsx        # Корневой компонент
+  └── main.tsx       # Точка входа
 ```
 
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-
-## Technologies Used
-
-- React
-- TypeScript
-- Redux Toolkit
-- Material-UI
-- Vite
-- React Router
-- Axios 
+## API Endpoints
+- `/login` - Авторизация
+- `/registration` - Регистрация
+- `/jobs` - Просмотр вакансий
+- `/jobs/` - Работа с вакансиями
+- `/my-applications` - Просмотр своих откликов
+- `/my-jobs` - Просмотр своих вакансий
+- `/profile` - Просмотр своего профиля

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -19,7 +18,6 @@ import { registerUser, registerEmployer } from '../../services/api';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 const RegisterForm: React.FC = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [userType, setUserType] = useState<'user' | 'employer'>('user');
   const [error, setError] = useState('');

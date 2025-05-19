@@ -15,7 +15,7 @@ import {
   Stack,
   Alert,
 } from '@mui/material';
-import { getJobDetails, applyToJob, getUserApplicationById, deleteJob, updateJob, getEmployerApplications } from '../../services/api';
+import { getJobDetails, applyToJob, deleteJob, updateJob, getEmployerApplications } from '../../services/api';
 import { Job } from '../../types';
 import { RootState } from '../../store';
 
@@ -134,8 +134,7 @@ const JobDetails: React.FC = () => {
 
     try {
       if (id) {
-        const response = await applyToJob(parseInt(id), message, cvFile);
-        const applicationDetails = await getUserApplicationById(response.id);
+        await applyToJob(parseInt(id), message, cvFile);
         setSuccess('Вы успешно откликнулись!');
         setOpenApplyDialog(false);
         setMessage('');
